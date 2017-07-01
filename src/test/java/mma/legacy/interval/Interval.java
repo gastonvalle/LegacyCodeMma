@@ -86,7 +86,7 @@ public class Interval {
 		case LEFT_OPENED:
 		case RIGHT_OPENED:
 		case CLOSED:
-			return (minimumIncluded || minimum == interval.minimum)
+			return (minimumIncluded || Double.compare(minimum, interval.minimum) ==0)
 					&& (maximumIncluded || maximum == interval.maximum);
 		default:
 			return false;
