@@ -326,10 +326,7 @@ public class IntervalTest {
 
 		
 
-		
-
-
-		intersecciona_intervalo_cerrado_en_intervalo_abierto_inferiormente();
+	
 		Interval rightOpenedPivot = IntervalFactory.getInterval(20, 40, IntervalType.RIGHT_OPENED);
 		assertFalse(rightOpenedPivot.intersectsWith(IntervalFactory.getInterval(5, 15, IntervalType.OPENED)));
 		assertFalse(rightOpenedPivot.intersectsWith(IntervalFactory.getInterval(10, 20, IntervalType.OPENED)));
@@ -406,6 +403,7 @@ public class IntervalTest {
 		assertFalse(unopenedPivot.intersectsWith(IntervalFactory.getInterval(45, 55, IntervalType.CLOSED)));
 	}
 
+	@Test
 	public void intersecciona_intervalo_cerrado_en_intervalo_abierto_inferiormente() {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(5, 15, IntervalType.CLOSED)));
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(10, 20, IntervalType.CLOSED)));
@@ -418,6 +416,7 @@ public class IntervalTest {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(40, 55, IntervalType.CLOSED)));
 	}
 
+	@Test
 	public void intersecciona_intervalo_abierto_superiormente_en_intervalo_abierto_inferiormente() {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(5, 15, IntervalType.RIGHT_OPENED)));
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(10, 20, IntervalType.RIGHT_OPENED)));
@@ -430,6 +429,7 @@ public class IntervalTest {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(40, 55, IntervalType.RIGHT_OPENED)));
 	}
 
+	@Test
 	public void intersecciona_intervalo_abierto_inferiormente_en_intervalo_abierto_inferiormente() {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(5, 15, IntervalType.LEFT_OPENED)));
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(10, 20, IntervalType.LEFT_OPENED)));
@@ -442,6 +442,7 @@ public class IntervalTest {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(40, 55, IntervalType.LEFT_OPENED)));
 	}
 
+	@Test
 	public void intersecciona_intervalo_abierto_en_intervalo_abierto_inferiormente() {
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(5, 15, IntervalType.OPENED)));
 		assertFalse(leftOpenedPivot.intersectsWith(IntervalFactory.getInterval(10, 20, IntervalType.OPENED)));
