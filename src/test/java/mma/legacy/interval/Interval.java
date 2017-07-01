@@ -86,8 +86,8 @@ public class Interval {
 		case LEFT_OPENED:
 		case RIGHT_OPENED:
 		case CLOSED:
-			return (minimumIncluded || Double.compare(minimum, interval.minimum) ==0)
-					&& (maximumIncluded || maximum == interval.maximum);
+			return (minimumIncluded || Double.compare(minimum, interval.minimum) == 0)
+					&& (maximumIncluded || Double.compare(maximum, interval.maximum) == 0);
 		default:
 			return false;
 		}
@@ -97,11 +97,11 @@ public class Interval {
 		switch (interval.intervalType) {
 		case OPENED:
 		case RIGHT_OPENED:
-			return (minimumIncluded || minimum == interval.minimum)
-					&& (maximumIncluded || maximum == interval.maximum);
+			return (minimumIncluded || Double.compare(minimum,interval.minimum) == 0)
+					&& (maximumIncluded || Double.compare(maximum, interval.maximum) == 0);
 		case LEFT_OPENED:
 		case CLOSED:
-			return (minimumIncluded || minimum == interval.minimum) && (maximumIncluded);
+			return (minimumIncluded || Double.compare(minimum, interval.minimum) == 0 ) && (maximumIncluded);
 		default:
 			return false;
 		}
@@ -111,11 +111,11 @@ public class Interval {
 		switch (interval.intervalType) {
 		case OPENED:
 		case LEFT_OPENED:
-			return (minimumIncluded || minimum == interval.minimum)
-					&& (maximumIncluded || maximum == interval.maximum);
+			return (minimumIncluded || Double.compare(minimum,interval.minimum) == 0)
+					&& (maximumIncluded || Double.compare(maximum, interval.maximum) == 0);
 		case RIGHT_OPENED:
 		case CLOSED:
-			return (minimumIncluded) && (maximumIncluded || maximum == interval.maximum);
+			return (minimumIncluded) && (maximumIncluded || Double.compare(maximum, interval.maximum) == 0);
 		default:
 			return false;
 		}
