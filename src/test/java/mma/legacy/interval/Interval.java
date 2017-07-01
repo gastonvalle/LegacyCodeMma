@@ -27,7 +27,6 @@ public class Interval {
 		this.minimum = minimum;
 		this.maximum = maximum;
 		this.intervalType = opening;
-		System.out.println("Objeto creado");
 	}
 
 	/**
