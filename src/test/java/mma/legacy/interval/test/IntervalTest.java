@@ -1,4 +1,4 @@
-package test.java.mma.legacy.interval;
+package mma.legacy.interval.test;
 
 import static org.junit.Assert.*;
 import mma.legacy.interval.Interval;
