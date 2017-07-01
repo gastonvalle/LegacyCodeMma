@@ -289,7 +289,7 @@ public class IntervalTest {
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(40, 45, IntervalType.CLOSED)));
 	}
 	@Test
-	public void incluye_intervalo_abierto_superiormente_en_intervalo_abierto() {
+	public void incluyeIntervaloAbiertoSuperiormenteEnIntervaloAbierto() {
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.RIGHT_OPENED)));
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.RIGHT_OPENED)));
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.RIGHT_OPENED)));
@@ -300,7 +300,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_inferiormente_en_intervalo_abierto() {
+	public void incluyeIntervaloAbiertoInferiormenteEnIntervaloAbierto() {
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.LEFT_OPENED)));
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.LEFT_OPENED)));
 		assertTrue(openedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.LEFT_OPENED)));
