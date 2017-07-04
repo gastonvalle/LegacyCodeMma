@@ -15,129 +15,129 @@ public class IntervalTest {
 	private Interval rightOpenedPivot = IntervalFactory.getInterval(20, 35, IntervalType.RIGHT_OPENED);
 	
 	@Test
-	public void calcula_punto_medio_intervalo() {
+	public void calculaPuntoMmedioIntervalo() {
 		assertEquals(5, IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).midPoint(), 0.0);
 
 	}
 
 	@Test
-	public void no_es_punto_medio_por_valor_inferior() {
+	public void noEsPuntoMedioPorValorInferior() {
 		assertNotEquals(4, IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).midPoint(), 0.0);
 
 	}
 
 	@Test
-	public void no_es_punto_medio_por_valor_superior() {
+	public void noEsPuntoMedioPorValorSuperior() {
 		assertNotEquals(6, IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).midPoint(), 0.0);
 
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_cerrado_del_extremo_inferior() {
+	public void estaDentroDelIntervaloCerradoDelExtremoInferior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).includes(0));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_cerrado_del_extremo_superior() {
+	public void estaDentroDelIntervaloCerradoDelExtremoSuperior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).includes(10));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_cerrado_del_extremo_inferior() {
+	public void estaFueraDelIntervaloCerradoDelExtremoInferior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).includes(-1));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_cerrado_del_extremo_superior() {
+	public void estaFueraDelIntervaloCerradoDelExtremoSuperior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.CLOSED).includes(11));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_abierto_del_extremo_inferior() {
+	public void estaDentroDelIntervaloAbiertoDelExtremoInferior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.OPENED).includes(1));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_abierto_del_extremo_superior() {
+	public void estaDentroDelIntervaloAbiertoDelExtremoSuperior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.OPENED).includes(9));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_abierto_del_extremo_inferior() {
+	public void estaFueraDelIntervaloAbiertoDelExtremoInferior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.OPENED).includes(0));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_abierto_del_extremo_superior() {
+	public void estafueraDelIntervaloAbiertoDelExtremoSuperior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.OPENED).includes(10));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_abierto_inferiormente_del_extremo_inferior() {
+	public void estaDentroDelIntervaloAbiertoInferiormenteDelExtremoInferior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.LEFT_OPENED).includes(1));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_abierto_inferiormente_del_extremo_superior() {
+	public void estaDentroDelIntervaloAbiertoInferiormenteDelExtremoSuperior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.LEFT_OPENED).includes(10));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_abierto_inferiormente_del_extremo_inferior() {
+	public void estaFueraDelIntervaloAbiertoInferiormenteDelExtremoInferior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.LEFT_OPENED).includes(0));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_abierto_inferiormente_del_extremo_superior() {
+	public void estaFueraDelIntervaloAbiertoInferiormenteDelExtremoSuperior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.LEFT_OPENED).includes(11));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_abierto_superiormente_del_extremo_inferior() {
+	public void estaDentroDelIntervaloAbiertoSuperiormenteDelExtremoInferior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.RIGHT_OPENED).includes(0));
 	}
 
 	@Test
-	public void esta_dentro_del_intervalo_abierto_superiormente_del_extremo_superior() {
+	public void estaDentroDelIntervaloAbiertoSuperiormenteDelExtremoSuperior() {
 		assertTrue(IntervalFactory.getInterval(0, 10, IntervalType.RIGHT_OPENED).includes(9));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_abierto_superiormente_del_extremo_inferior() {
+	public void estaFueraDelIntervaloAbiertoSuperiormenteDelExtremoInferior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.RIGHT_OPENED).includes(-1));
 	}
 
 	@Test
-	public void esta_fuera_del_intervalo_abierto_superiormente_del_extremo_superior() {
+	public void estaFueraDelIntervaloAbiertoSuperiormenteDelExtremoSuperior() {
 		assertFalse(IntervalFactory.getInterval(0, 10, IntervalType.RIGHT_OPENED).includes(10));
 	}
 
 	@Test
-	public void esta_intervalo_dentro_de_otro_intervalo_cerrado() {
+	public void estaIntervaloDentroDeOtroIntervaloCerrado() {
 		Interval bothOpenedPivot = IntervalFactory.getInterval(20, 35, IntervalType.CLOSED);
 		assertTrue(bothOpenedPivot.includes(IntervalFactory.getInterval(20, 30, IntervalType.CLOSED)));
 	}
 
 	@Test
-	public void esta_intervalo_fuera_de_otro_intervalo_cerrado_ambos_por_debajo_limite_inferior() {
+	public void estaIntervaloFueraDeOtroIntervaloCerradoAmbosPorDebajoLimiteInferior() {
 		Interval bothOpenedPivot = IntervalFactory.getInterval(20, 35, IntervalType.CLOSED);
 		assertFalse(bothOpenedPivot.includes(IntervalFactory.getInterval(10, 19, IntervalType.CLOSED)));
 	}
 
 	@Test
-	public void esta_intervalo_fuera_de_otro_intervalo_cerrado_teniendo_solo_limite_superior_en_intervalo() {
+	public void estaIntervaloFueraDeOtroIntervaloCerradoTeniendoSoloLimiteSuperiorEnIntervalo() {
 		Interval bothOpenedPivot = IntervalFactory.getInterval(20, 35, IntervalType.CLOSED);
 		assertFalse(bothOpenedPivot.includes(IntervalFactory.getInterval(10, 20, IntervalType.CLOSED)));
 	}
 
 	@Test
-	public void esta_intervalo_fuera_de_otro_intervalo_cerrado_teniendo_solo_limite_inferior_en_intervalo() {
+	public void estaIntervaloFueraDeOtroIntervaloCerradoTeniendoSoloLimiteInferiorEnIntervalo() {
 		Interval bothOpenedPivot = IntervalFactory.getInterval(20, 35, IntervalType.CLOSED);
 		assertFalse(bothOpenedPivot.includes(IntervalFactory.getInterval(35, 40, IntervalType.CLOSED)));
 	}
 
 	@Test
-	public void esta_intervalo_fuera_de_otro_intervalo_cerrado_ambos_por_encima_limite_superior() {
+	public void estaIntervaloFueraDeOtroIntervaloCerradoAmbosPorEncimaLimiteSuperior() {
 		Interval bothOpenedPivot = IntervalFactory.getInterval(20, 35, IntervalType.CLOSED);
 		assertFalse(bothOpenedPivot.includes(IntervalFactory.getInterval(36, 40, IntervalType.CLOSED)));
 	}
@@ -145,7 +145,7 @@ public class IntervalTest {
 	
 
 	@Test
-	public void incluye_intervalo_cerrado_en_intervalo_cerrado() {
+	public void incluyeIntervaloCerradoEnIntervaloCerrado() {
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.CLOSED)));
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.CLOSED)));
 		assertTrue(closedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.CLOSED)));
@@ -156,7 +156,7 @@ public class IntervalTest {
 	}
 	
 	@Test
-	public void incluye_intervalo_abierto_superiormente_en_intervalo_cerrado() {
+	public void incluyeIntervaloAbiertoSuperiormenteEnIntervaloCerrado() {
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.RIGHT_OPENED)));
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.RIGHT_OPENED)));
 		assertTrue(closedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.RIGHT_OPENED)));
@@ -167,7 +167,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_inferiormente_en_intervalo_cerrado() {
+	public void incluyeIntervaloAbiertoInferiormenteEnIntervaloCerrado() {
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.LEFT_OPENED)));
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.LEFT_OPENED)));
 		assertTrue(closedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.LEFT_OPENED)));
@@ -178,7 +178,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_en_intervalo_cerrado() {
+	public void incluyeIntervaloAbiertoEnIntervaloCerrado() {
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.OPENED)));
 		assertFalse(closedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.OPENED)));
 		assertTrue(closedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.OPENED)));
@@ -189,7 +189,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_cerrado_en_intervalo_abierto_superiormente() {
+	public void incluyeIntervaloCerradoEnIntervaloAbiertoSuperiormente() {
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.CLOSED)));
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.CLOSED)));
 		assertTrue(rightOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.CLOSED)));
@@ -200,7 +200,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_superiormente_en_intervalo_abierto_superiormente() {
+	public void incluyeIntervaloAbiertoSuperiormenteEnIntervaloAbiertoSuperiormente() {
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.RIGHT_OPENED)));
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.RIGHT_OPENED)));
 		assertTrue(rightOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.RIGHT_OPENED)));
@@ -211,7 +211,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_inferiormente_en_intervalo_abierto_superiormente() {
+	public void incluyeIntervaloAbiertoInferiormenteEnIntervaloAbiertoSuperiormente() {
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.LEFT_OPENED)));
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.LEFT_OPENED)));
 		assertTrue(rightOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.LEFT_OPENED)));
@@ -222,7 +222,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_en_intervalo_abierto_superiormente() {
+	public void incluyeIntervaloAbiertoEnIntervaloAbiertoSuperiormente() {
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.OPENED)));
 		assertFalse(rightOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.OPENED)));
 		assertTrue(rightOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.OPENED)));
@@ -234,7 +234,7 @@ public class IntervalTest {
 	
 
 	@Test
-	public void incluye_intervalo_cerrado_en_intervalo_abierto_inferiormente() {
+	public void incluyeIntervaloCerradoEnIntervaloAbiertoInferiormente() {
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.CLOSED)));
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.CLOSED)));
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.CLOSED)));
@@ -245,7 +245,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_superiormente_en_intervalo_abierto_inferiormente() {
+	public void incluyeIntervaloAbiertoSuperiormenteEnIntervaloAbiertoInferiormente() {
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.RIGHT_OPENED)));
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.RIGHT_OPENED)));
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.RIGHT_OPENED)));
@@ -256,7 +256,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_inferiormente_en_intervalo_abierto_inferiormente() {
+	public void incluyeIntervaloAbiertoInferiormenteEnIntervaloAbiertoInferiormente() {
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.LEFT_OPENED)));
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.LEFT_OPENED)));
 		assertTrue(leftOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.LEFT_OPENED)));
@@ -267,7 +267,7 @@ public class IntervalTest {
 	}
 
 	@Test
-	public void incluye_intervalo_abierto_en_intervalo_abierto_inferiormente() {
+	public void incluyeIntervaloAbiertoEnIntervaloAbiertoInferiormente() {
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.OPENED)));
 		assertFalse(leftOpenedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.OPENED)));
 		assertTrue(leftOpenedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.OPENED)));
@@ -280,7 +280,7 @@ public class IntervalTest {
 	
 	
 	@Test
-	public void incluye_intervalo_cerrado_en_intervalo_abierto() {
+	public void incluyeIntervaloCerradoEnIntervaloAbierto() {
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.CLOSED)));
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.CLOSED)));
 		assertTrue(openedPivot.includes(IntervalFactory.getInterval(25, 30, IntervalType.CLOSED)));
