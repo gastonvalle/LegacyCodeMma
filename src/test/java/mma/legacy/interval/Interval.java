@@ -43,18 +43,29 @@ public class Interval {
 	 * 
 	 **/
 	public boolean includes(double value) {
-		switch (intervalType) {
-		case OPENED:
-			return minimum < value && value < maximum;
-		case LEFT_OPENED:
-			return minimum < value && value <= maximum;
-		case RIGHT_OPENED:
-			return minimum <= value && value < maximum;
-		case CLOSED:
-			return minimum <= value && value <= maximum;
-		default:
-			return false;
-		}
+		
+		return isLessThanMaximum(value) && isGratherThanMinimum(value);
+		
+	}
+	
+	private boolean isGratherThanMinimum(double value) {
+		if(isLeftLimitOpened())
+			return Double.compare(minimum, value) < 0;
+		return Double.compare(minimum, value) <= 0;
+	}
+	
+	private boolean isLessThanMaximum(double value) {
+		if (isRightLimitOpened())
+			return Double.compare(value, maximum) < 0;
+		return Double.compare(value, maximum) <= 0;
+	}
+	
+	private boolean isRightLimitOpened() {
+		return intervalType == intervalType.OPENED || intervalType == intervalType.RIGHT_OPENED; 
+	}
+	
+	private boolean isLeftLimitOpened() {
+		return intervalType == intervalType.OPENED || intervalType == intervalType.LEFT_OPENED; 
 	}
 
 	/**

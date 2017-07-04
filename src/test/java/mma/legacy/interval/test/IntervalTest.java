@@ -311,7 +311,7 @@ public class IntervalTest {
 	}
 	
 	@Test
-	public void incluye_intervalo_abierto_en_intervalo_abierto() {
+	public void incluyeIntervaloAbiertoEnIntervaloAbierto() {
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(10, 15, IntervalType.OPENED)));
 		assertFalse(openedPivot.includes(IntervalFactory.getInterval(15, 20, IntervalType.OPENED)));
 		assertTrue(openedPivot.includes(IntervalFactory.getInterval(20, 25, IntervalType.OPENED)));
