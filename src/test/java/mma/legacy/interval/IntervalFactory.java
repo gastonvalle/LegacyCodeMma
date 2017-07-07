@@ -6,9 +6,12 @@ package mma.legacy.interval;
  * @author Agustin
  *
  */
-public abstract class IntervalFactory {
+public class IntervalFactory {
 
-	
+	private IntervalFactory()
+	{
+		
+	}
 	
 	/**
 	 * Construye un intervalo con las propiedades especificadas
