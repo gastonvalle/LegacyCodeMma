@@ -92,16 +92,9 @@ public class Interval {
 	}
 
 	private boolean includesInClosedInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
-		switch (interval.intervalType) {
-		case OPENED:
-		case LEFT_OPENED:
-		case RIGHT_OPENED:
-		case CLOSED:
-			return (minimumIncluded || Double.compare(minimum, interval.minimum) == 0)
-					&& (maximumIncluded || Double.compare(maximum, interval.maximum) == 0);
-		default:
-			return false;
-		}
+		return (minimumIncluded || Double.compare(minimum, interval.minimum) == 0)
+				&& (maximumIncluded || Double.compare(maximum, interval.maximum) == 0);
+		
 	}
 
 	private boolean includesInRightOnepedInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
@@ -157,30 +150,15 @@ public class Interval {
 
 	public boolean intersectsWith(Interval interval) {
 		if (minimum == interval.maximum) {
-			switch (intervalType) {
-			case OPENED:
-			case LEFT_OPENED:
-				return false;
-			case RIGHT_OPENED:
-			case CLOSED:
+			
+			if(intervalType == IntervalType.RIGHT_OPENED || intervalType == IntervalType.CLOSED)
 				return interval.intervalType == IntervalType.LEFT_OPENED || interval.intervalType == IntervalType.CLOSED;
-			default:
-				assert false;
-				return false;
-			}
+			return false;
 		}
 		if (maximum == interval.minimum) {
-			switch (intervalType) {
-			case OPENED:
-			case RIGHT_OPENED:
-				return false;
-			case LEFT_OPENED:
-			case CLOSED:
+			if(intervalType == IntervalType.LEFT_OPENED || intervalType == IntervalType.CLOSED)
 				return interval.intervalType == IntervalType.RIGHT_OPENED || interval.intervalType == IntervalType.CLOSED;
-			default:
-				assert false;
-				return false;
-			}
+			return false;
 		}
 		return this.includes(interval.minimum) || this.includes(interval.maximum);
 	}
