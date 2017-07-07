@@ -30,7 +30,7 @@ public class Interval {
 	}
 
 	/**
-	 * Este método calcula el punto medio
+	 * Calcula el punto medio del intervalo
 	 * 
 	 * @return
 	 */
@@ -39,7 +39,7 @@ public class Interval {
 	}
 
 	/**
-	 * Este método mira si un número está dentro del propio intervalo
+	 * Verifica si un punto dado está dentro del intervalo
 	 * 
 	 **/
 	public boolean includes(double value) {
@@ -91,7 +91,7 @@ public class Interval {
 		}
 	}
 
-	public boolean includesInClosedInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
+	private boolean includesInClosedInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
 		switch (interval.intervalType) {
 		case OPENED:
 		case LEFT_OPENED:
@@ -104,7 +104,7 @@ public class Interval {
 		}
 	}
 
-	public boolean includesInRightOnepedInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
+	private boolean includesInRightOnepedInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
 		switch (interval.intervalType) {
 		case OPENED:
 		case RIGHT_OPENED:
@@ -118,7 +118,7 @@ public class Interval {
 		}
 	}
 
-	public boolean includesInLeftOpenInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
+	private boolean includesInLeftOpenInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
 		switch (interval.intervalType) {
 		case OPENED:
 		case LEFT_OPENED:
@@ -132,7 +132,7 @@ public class Interval {
 		}
 	}
 
-	public boolean includesInOpenInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
+	private boolean includesInOpenInterval(Interval interval, boolean minimumIncluded, boolean maximumIncluded) {
 		switch (interval.intervalType) {
 		case OPENED:
 			return (minimumIncluded || minimum == interval.minimum)
@@ -149,7 +149,7 @@ public class Interval {
 	}
 
 	/**
-	 * Este método verifica si el intervalo que recibe como parametro, intersecciona con 
+	 * Este método verifica si el intervalo que recibe como parametro, intersecciona con el propio intervalo
 	 * 
 	 * @param interval
 	 * @return

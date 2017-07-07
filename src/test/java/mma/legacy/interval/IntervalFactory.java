@@ -6,13 +6,18 @@ package mma.legacy.interval;
  * @author Agustin
  *
  */
-public class IntervalFactory {
+public abstract class IntervalFactory {
 
-	private IntervalFactory()
-	{
-		
-	}
-	public static Interval getInterval(double minimum, double maximum, IntervalType opening) {
-		return new Interval(minimum, maximum, opening);
+	
+	
+	/**
+	 * Construye un intervalo con las propiedades especificadas
+	 * @param minimum extremo inferior del intervalo 
+	 * @param maximum extremo superior del intervalo
+	 * @param intervalType tipo de intervalo
+	 * @return nuevo intervalo
+	 */
+	public static Interval getInterval(double minimum, double maximum, IntervalType intervalType) {
+		return new Interval(minimum, maximum, intervalType);
 	}
 }
